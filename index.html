@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <title>Kopf oder Zahl</title>
+  <meta name="description" content="Münzwurf-App: Bei 2 % der Würfe liefert die Münze kein Ergebnis.">
+  <meta name="theme-color" content="#14122b">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Kopf/Zahl">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="icon-btn" id="btn-sound" aria-label="Ton an/aus" title="Ton an/aus">🔊</button>
+    <h1>Kopf <span>oder</span> Zahl</h1>
+    <button class="icon-btn" id="btn-info" aria-label="Wahrscheinlichkeiten &amp; Statistik" title="Statistik">📊</button>
+  </header>
+
+  <main>
+    <div class="choices">
+      <input id="label-kopf" maxlength="24" placeholder="Kopf = …" aria-label="Was bedeutet Kopf?">
+      <span class="vs">vs</span>
+      <input id="label-zahl" maxlength="24" placeholder="Zahl = …" aria-label="Was bedeutet Zahl?">
+    </div>
+
+    <section class="stage" id="stage" aria-label="Münze werfen">
+      <div class="hole" id="hole"></div>
+      <div class="drain" id="drain">
+        <div class="drain-grid"></div>
+      </div>
+      <div class="bird" id="bird" aria-hidden="true">🐦</div>
+      <div class="coin-wrap" id="coin-wrap">
+        <div class="coin" id="coin">
+          <div class="face kopf"><div class="rim"><span class="emblem">🦅</span><span class="caption">KOPF</span></div></div>
+          <div class="face zahl"><div class="rim"><span class="value">1</span><span class="caption">ZAHL</span></div></div>
+          <div class="edge"></div>
+        </div>
+        <div class="half half-left"><div class="face kopf"><div class="rim"><span class="emblem">🦅</span><span class="caption">KOPF</span></div></div></div>
+        <div class="half half-right"><div class="face zahl"><div class="rim"><span class="value">1</span><span class="caption">ZAHL</span></div></div></div>
+      </div>
+      <div class="shadow" id="shadow"></div>
+    </section>
+
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-title" id="result-title">Bereit?</div>
+      <div class="result-sub" id="result-sub">Tippe auf die Münze oder den Knopf.</div>
+    </div>
+
+    <button class="flip-btn" id="btn-flip">Münze werfen</button>
+
+    <ol class="history" id="history" aria-label="Letzte Würfe"></ol>
+
+    <button class="install-btn" id="btn-install" hidden>📲 Als App installieren</button>
+  </main>
+
+  <dialog id="info">
+    <form method="dialog" class="sheet">
+      <div class="sheet-head">
+        <h2>Statistik</h2>
+        <button class="icon-btn" aria-label="Schließen">✕</button>
+      </div>
+      <div class="stats" id="stats"></div>
+
+      <h3>Sammlung seltener Ereignisse</h3>
+      <ul class="collection" id="collection"></ul>
+
+      <h3>Offizielle Wahrscheinlichkeiten</h3>
+      <table class="odds" id="odds"></table>
+      <p class="fine">Den Zufall liefert <code>crypto.getRandomValues</code> aus deinem Browser.
+        Eine echte Münze landet ca. 1&nbsp;von&nbsp;6000 Mal auf dem Rand.</p>
+
+      <p class="ios-hint" id="ios-hint" hidden>
+        <strong>Auf dem iPhone installieren:</strong> In Safari auf „Teilen“ <span aria-hidden="true">⬆️</span> tippen → „Zum Home-Bildschirm“.
+      </p>
+
+      <button type="button" class="reset-btn" id="btn-reset">Statistik zurücksetzen</button>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
