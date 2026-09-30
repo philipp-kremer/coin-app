@@ -4,41 +4,41 @@
 const OUTCOMES = [
   {
     id: 'kopf', weight: 49000, icon: '🦅', short: 'K', name: 'Kopf',
-    lines: ['Die Münze hat gesprochen.', 'Ganz klar.', 'Kein Zweifel möglich.', 'Der Adler ist zufrieden.', 'Klassiker.'],
+    lines: ['Der Adler liegt oben.', 'Kopf gewinnt diese Runde.', 'Du hast Kopf geworfen.'],
   },
   {
     id: 'zahl', weight: 49000, icon: '1', short: 'Z', name: 'Zahl',
-    lines: ['Die Mathematik hat entschieden.', 'Eindeutig.', 'So steht es geschrieben.', 'Zahlen lügen nicht.', 'Klassiker.'],
+    lines: ['Die Eins liegt oben.', 'Zahl gewinnt diese Runde.', 'Du hast Zahl geworfen.'],
   },
   {
     id: 'rand', weight: 800, icon: '🪙', name: 'Auf dem Rand!', special: true,
-    desc: 'Die Münze bleibt einfach stehen.',
-    lines: ['Sie steht. Einfach so. Frag nochmal – oder mach beides.', 'Physiker hassen diesen Trick.', 'Die Münze verweigert jede Verantwortung.'],
+    desc: 'Die Münze bleibt auf der Kante stehen.',
+    lines: ['Wirf nochmal oder mach beides.', 'Du hast gerade eine Chance von 1 zu 125 getroffen.', 'Diese Entscheidung musst du selbst treffen.'],
   },
   {
-    id: 'moewe', weight: 400, icon: '🐦', name: 'Von einer Möwe geklaut!', special: true,
+    id: 'moewe', weight: 400, icon: '🐦', name: 'Eine Möwe klaut die Münze!', special: true,
     desc: 'Ein Vogel schnappt sich die Münze mitten im Flug.',
-    lines: ['Sie ist weg. Die Möwe hat jetzt 1 €.', 'Hätte schlimmer kommen können. Z.B. dein Pommes.', 'Die Möwe hat sich für „Meins“ entschieden.'],
+    lines: ['Die Möwe hat jetzt 1 € und du keine Antwort.', 'Sei froh, dass sie nicht deine Pommes genommen hat.', 'Die Möwe hat sich für „Meins“ entschieden.'],
   },
   {
     id: 'gully', weight: 400, icon: '🕳️', name: 'Ab in den Gully!', special: true,
-    desc: 'Die Münze rollt davon und ist für immer verloren.',
-    lines: ['Plopp. Das war’s. Eine Ersatzmünze ist unterwegs.', 'Die Kanalratten danken für die Spende.', 'Sie wollte einfach frei sein.'],
+    desc: 'Die Münze rollt weg und fällt durch das Gitter.',
+    lines: ['Die Kanalratten bedanken sich für die Spende.', 'Die Münze liegt jetzt im Kanal. Gleich fällt eine neue von oben.'],
   },
   {
     id: 'schwebt', weight: 200, icon: '🎈', name: 'Die Münze schwebt.', special: true,
-    desc: 'Die Schwerkraft macht gerade Pause.',
-    lines: ['Die Schwerkraft hat heute frei.', 'Die Münze will sich nicht festlegen.', 'Newton dreht sich im Grab um.'],
+    desc: 'Die Münze bleibt in der Luft hängen und dreht sich.',
+    lines: ['Newton dreht sich im Grab um.', 'Du siehst eine Münze, die nicht runterfällt. Wirf nochmal.'],
   },
   {
     id: 'geteilt', weight: 150, icon: '💔', name: 'Halb Kopf, halb Zahl.', special: true,
     desc: 'Die Münze zerbricht in zwei Hälften.',
-    lines: ['Kompromiss! Beide haben ein bisschen recht.', 'Diplomatische Lösung erzielt.', 'Teilt euch das einfach.'],
+    lines: ['Kompromiss! Beide Seiten bekommen ein bisschen recht.', 'Nimm von beidem die Hälfte.'],
   },
   {
     id: 'loch', weight: 50, icon: '🌌', name: 'Schwarzes Loch!', special: true,
-    desc: 'Ein Riss in der Raumzeit verschluckt alles.',
-    lines: ['Die Münze existiert jetzt in einer anderen Dimension.', 'Das Ergebnis liegt hinter dem Ereignishorizont.', 'Ein Paralleluniversum hat jetzt die Antwort.'],
+    desc: 'Ein schwarzes Loch verschluckt die Münze samt Ergebnis.',
+    lines: ['Die Münze liegt jetzt in einer anderen Dimension.', 'Dein Ergebnis steckt hinter dem Ereignishorizont.', 'Ein Paralleluniversum kennt jetzt die Antwort.'],
   },
 ];
 const TOTAL_WEIGHT = OUTCOMES.reduce((s, o) => s + o.weight, 0);
@@ -491,7 +491,7 @@ $('btn-info').addEventListener('click', () => { renderInfo(); $('info').showModa
 $('info').addEventListener('click', (e) => { if (e.target === $('info')) $('info').close(); });
 
 $('btn-reset').addEventListener('click', () => {
-  if (!confirm('Statistik und Sammlung wirklich zurücksetzen?')) return;
+  if (!confirm('Statistik und Sammlung zurücksetzen?')) return;
   state = { ...loadState(), counts: {}, total: 0, history: [], streak: { id: null, n: 0 }, best: 0 };
   saveState();
   renderHistory();

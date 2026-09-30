@@ -1,6 +1,6 @@
 # Kopf oder Zahl 🪙
 
-Eine Münzwurf-App als PWA – mit einer kleinen, aber echten Chance, dass die Münze **kein** Ergebnis liefert.
+Münzwurf-App als PWA. Bei 2 % der Würfe liefert die Münze **kein** Ergebnis.
 
 | Ergebnis | Wahrscheinlichkeit |
 | --- | --- |
@@ -13,17 +13,17 @@ Eine Münzwurf-App als PWA – mit einer kleinen, aber echten Chance, dass die M
 | 💔 Zerbricht: halb Kopf, halb Zahl | 0,15 % |
 | 🌌 Schwarzes Loch | 0,05 % |
 
-Außerdem: Statistik, Serien, eine Sammlung der seltenen Ereignisse, optionale Beschriftung („Kopf = Pizza, Zahl = Burger“), Sound + Vibration, offline nutzbar.
-Der Zufall kommt aus `crypto.getRandomValues`.
+Die App zählt deine Würfe und Serien und sammelt die seltenen Ereignisse, die du schon erlebt hast.
+Du kannst Kopf und Zahl beschriften („Kopf = Pizza, Zahl = Burger“). Sie spielt Töne ab, vibriert und läuft offline.
+Den Zufall liefert `crypto.getRandomValues`.
 
 ## Installieren
 
-Die App wird per GitHub Actions auf GitHub Pages veröffentlicht (einmalig in den Repo-Einstellungen unter
-**Settings → Pages → Source: GitHub Actions** aktivieren). Danach ist sie unter
-`https://<user>.github.io/coin-app/` erreichbar.
+Ein GitHub-Actions-Workflow veröffentlicht die App auf GitHub Pages. Aktiviere dafür einmal in den Repo-Einstellungen
+**Settings → Pages → Source: GitHub Actions**. Danach findest du die App unter `https://<user>.github.io/coin-app/`.
 
 - **iPhone (Safari):** Teilen → „Zum Home-Bildschirm“
-- **Android (Chrome):** Menü → „App installieren“ bzw. der Knopf in der App
+- **Android (Chrome):** Menü → „App installieren“ oder der Knopf in der App
 
 ## Lokal starten
 
@@ -31,4 +31,4 @@ Die App wird per GitHub Actions auf GitHub Pages veröffentlicht (einmalig in de
 npx http-server .
 ```
 
-Die Wahrscheinlichkeiten stehen in `OUTCOMES` in `app.js`. Nach Änderungen die Cache-Version in `sw.js` hochzählen.
+Die Wahrscheinlichkeiten stehen in `OUTCOMES` in `app.js`. Wenn du etwas änderst, zähl die Cache-Version in `sw.js` hoch.

@@ -1,7 +1,7 @@
 {
   "name": "Kopf oder Zahl",
   "short_name": "Kopf/Zahl",
-  "description": "Münzwurf-App mit einer kleinen, aber echten Chance auf Chaos.",
+  "description": "Münzwurf-App: Bei 2 % der Würfe liefert die Münze kein Ergebnis.",
   "lang": "de",
   "start_url": "./",
   "scope": "./",

@@ -1,5 +1,5 @@
 // Bei Änderungen an der App die Version hochzählen, damit das Cache erneuert wird.
-const CACHE = 'coinflip-v1';
+const CACHE = 'coinflip-v2';
 const ASSETS = [
   './',
   'index.html',
